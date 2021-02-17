@@ -20,6 +20,9 @@ SUPPORTED_POINT_FIELDS = {
     "cartesianX": "d",
     "cartesianY": "d",
     "cartesianZ": "d",
+    "sphericalRange": "d",
+    "sphericalAzimuth": "d",
+    "sphericalElevation": "d",
     "intensity": "f",
     "colorRed": "B",
     "colorGreen": "B",
@@ -27,6 +30,7 @@ SUPPORTED_POINT_FIELDS = {
     "rowIndex": "H",
     "columnIndex": "H",
     "cartesianInvalidState": "b",
+    "sphericalInvalidState": "b",
 }
 
 
