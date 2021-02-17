@@ -259,7 +259,7 @@ public:
 
     /// Iterator constructors
     std::shared_ptr<CompressedVectorWriterImpl> writer(std::vector<SourceDestBuffer> sbufs);
-    std::shared_ptr<CompressedVectorReaderImpl> reader(std::vector<SourceDestBuffer> dbufs);
+    std::shared_ptr<CompressedVectorReaderImpl> reader(std::vector<SourceDestBuffer> dbufs, bool allowParallel);
 
     int64_t             getRecordCount()                        {return(recordCount_);}
     uint64_t            getBinarySectionLogicalStart()          {return(binarySectionLogicalStart_);}

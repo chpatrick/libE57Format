@@ -3279,9 +3279,9 @@ It is not an error to create a CompressedVectorReader for an empty CompressedVec
 @throw   ::E57_ERROR_INTERNAL           All objects in undocumented state
 @see     SourceDestBufferFunctions.cpp example, CompressedVectorReader, SourceDestBuffer, CompressedVectorNode::CompressedVectorNode, CompressedVectorNode::prototype
 */
-CompressedVectorReader CompressedVectorNode::reader(const std::vector<SourceDestBuffer>& dbufs)
+CompressedVectorReader CompressedVectorNode::reader(const std::vector<SourceDestBuffer>& dbufs, bool allowParallel)
 {
-    return CompressedVectorReader(impl_->reader(dbufs));
+    return CompressedVectorReader(impl_->reader(dbufs, allowParallel));
 }
 
 //=====================================================================================

@@ -1997,7 +1997,7 @@ shared_ptr<CompressedVectorWriterImpl> CompressedVectorNodeImpl::writer(vector<S
     return(cvwi);
 }
 
-shared_ptr<CompressedVectorReaderImpl> CompressedVectorNodeImpl::reader(vector<SourceDestBuffer> dbufs)
+shared_ptr<CompressedVectorReaderImpl> CompressedVectorNodeImpl::reader(vector<SourceDestBuffer> dbufs, bool allowParallel)
 {
     checkImageFileOpen(__FILE__, __LINE__, __FUNCTION__);
 
@@ -2010,7 +2010,7 @@ shared_ptr<CompressedVectorReaderImpl> CompressedVectorNodeImpl::reader(vector<S
                              + " writerCount=" + toString(destImageFile->writerCount())
                              + " readerCount=" + toString(destImageFile->readerCount()));
     }
-    if (destImageFile->readerCount() > 0) {
+    if (!allowParallel && destImageFile->readerCount() > 0) {
         throw E57_EXCEPTION2(E57_ERROR_TOO_MANY_READERS,
                              "fileName=" + destImageFile->fileName()
                              + " writerCount=" + toString(destImageFile->writerCount())
